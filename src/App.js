@@ -10,6 +10,18 @@ import Cita from "./components/Cita"
   crossorigin="anonymous"
 />
 
+const App = () => {
+   const [cita, setCita] = useState({
+       nombre: '',
+       dueno: '',
+       fecha: '',
+       hora: '',
+       sintomas: ''
+   });
+}
+
+   const [citas, setCitas] = useState([]);
+   
 function App() {
   return (
 <>
@@ -17,11 +29,11 @@ function App() {
    <div className="container">
       <div className="row">
          <div className="one-half column">
-            <Formulario />
+            <Formulario addCita={setCitas} cita={cita} citas={citas} setCita={setCita} />
          </div>
          <div className="one-half column">
             <h2>Administra tus citas</h2>
-            <Cita />
+            <Citas citas={citas} setCitas={setCitas}/>
          </div>
       </div>
    </div>
