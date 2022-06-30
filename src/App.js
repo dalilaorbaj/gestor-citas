@@ -25,16 +25,14 @@ const App = () => {
    return (
       <>
          <h1>GESTOR DE CITAS</h1>
-         <div className="container">
-            <div className="row">
-               <div className="one-half column">
+         <div className="garden">
+               <div className="primera">
                   <Formulario setCita={setCita}/>
                </div>
-               <div className="one-half column">
+               <div className="segunda">
                   {/* <h2>Administra tus citas</h2> */}
                   <ListadoCitas listadoCitas={listadoCitas} />
                </div>
-            </div>
          </div>
       </>
    );

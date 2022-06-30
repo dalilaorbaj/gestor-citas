@@ -63,6 +63,8 @@ input[type="time"] {
   background: white;
   border-bottom: 1px solid #e1e1e1;
   color: black;
+  margin-left:5%;
+  margin-right: 5%;
 }
 
 .cita p {
@@ -104,6 +106,25 @@ input[type="time"] {
 
 }
 
+.garden{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  align-items: center;
+}
 
+.primera{
+  grid-column-start:1;
+  grid-row-start:1;
+}
+
+.segunda{
+  grid-column-start:2;
+  grid-row-start:1;
+}
+
+.centrado{
+  text-align: center;
+}
 
 
