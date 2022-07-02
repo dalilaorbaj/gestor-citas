@@ -47,22 +47,30 @@ const Formulario = ({ setCita }) => {
         };
         setCita(cita);
     }
-    
+
+    const reset = () =>{
+        setNombre(() => "");
+        setDueno(() => "");
+        setFecha(() => "");
+        setHora(() => "");
+        setSintomas(() => "");
+    }
+
     return (
         <>
-            <h2>Crear mi Cita</h2>
+            <h2>Crear mi cita</h2>
             <div className="centrado">
                 <label>Nombre Mascota</label><br/>
-                <input type="text" name="mascota" className="u-full-width mb-3" placeholder="Nombre Mascota" onChange={NombreHandler} value={nombre} /><br/>
+                <input type="text" name="mascota" className="u-full-width mb-3" placeholder="Nombre mascota" onChange={NombreHandler} value={nombre} /><br/>
                 <label>Nombre Dueño</label><br/>
-                <input type="text" name="propietario" className="u-full-width mb-3" placeholder="Nombre dueño de la mascota" onChange={DuenoHandler} value={dueno} /><br/>
+                <input type="text" name="propietario" className="u-full-width mb-3" placeholder="Nombre del dueño" onChange={DuenoHandler} value={dueno} /><br/>
                 <label>Fecha</label><br/>
                 <input type="date" name="fecha" className="u-full-width mb-3" onChange={FechaHandler} value={fecha}></input><br/>
                 <label>hora</label><br/>
                 <input type="time" name="hora" className="u-full-width mb-3" onChange={HoraHandler} value={hora} /><br/>
                 <label>Sintomas</label><br/>
                 <textarea name="sintomas" className="u-full-width mb-3" onChange={SintomasHandler} value={sintomas}/> <br/>
-                <button id="btn-sbmt" onClick={guardarCita}>ENVIAR</button>
+                <button className="buttonForm" id="btn-sbmt" onClick={()=>{guardarCita(); reset()}}>Enviar</button>
             </div>
         </>
     );

@@ -4,6 +4,10 @@ import Formulario from "./components/Formulario"
 import React, { useState, useEffect } from 'react';
 import ListadoCitas from "./components/ListadoCitas"
 
+/*FALTA: 
+- que funcione el boton de eliminar
+- que no mande nada si estan los datos vacios
+*/
 
 <link
    rel="stylesheet"
@@ -24,8 +28,10 @@ const App = () => {
 
    return (
       <>
-         <h1>GESTOR DE CITAS</h1>
-         <div className="garden">
+      <div id="title" class="slide header">
+      <h1>GESTOR DE CITAS</h1>      
+</div>         
+      <div className="garden">
                <div className="primera">
                   <Formulario setCita={setCita}/>
                </div>
