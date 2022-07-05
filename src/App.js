@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Formulario from "./components/Formulario"
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import ListadoCitas from "./components/ListadoCitas"
 
 /*FALTA: 
@@ -18,8 +18,6 @@ import ListadoCitas from "./components/ListadoCitas"
 
 const App = () => {
    const [cita, setCita] = useState(-1);
-
-
    const [listadoCitas, setListadoCitas] = useState([]);
 
    useEffect(() => {
@@ -30,14 +28,14 @@ const App = () => {
       <>
       <div id="title" class="slide header">
       <h1>GESTOR DE CITAS</h1>      
-</div>         
+      </div>         
       <div className="garden">
                <div className="primera">
                   <Formulario setCita={setCita}/>
                </div>
                <div className="segunda">
                   {/* <h2>Administra tus citas</h2> */}
-                  <ListadoCitas listadoCitas={listadoCitas} />
+                  <ListadoCitas listadoCitas={listadoCitas} setListadoCitas={setListadoCitas}/>
                </div>
          </div>
       </>

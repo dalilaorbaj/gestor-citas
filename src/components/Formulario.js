@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Cita } from '../App';
 import '../App.css';
 
 const Formulario = ({ setCita }) => {
@@ -26,18 +25,7 @@ const Formulario = ({ setCita }) => {
     const SintomasHandler = (e) =>{
         setSintomas(e.target.value);
     }
-    const guardarCita = () =>{
-        const cita = {
-            nombre: nombre,
-            dueno: dueno,
-            fecha: fecha,
-            hora: hora,
-            sintomas: sintomas
-        };
-        setCita(cita);
-    }
-
-    const eliminarCita = () =>{
+    const guardarCita = (error) =>{
         const cita = {
             nombre: nombre,
             dueno: dueno,
