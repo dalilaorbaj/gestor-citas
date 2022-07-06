@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 
-const Formulario = ({ setCita, listadoCitas, cita, setCita }) => {
+const Formulario = ({ setCita, listadoCitas, cita }) => {
     const [nombre, setNombre] = useState('');
     const [dueno, setDueno] = useState('');
     const [fecha, setFecha] = useState('');
@@ -25,16 +25,13 @@ const Formulario = ({ setCita, listadoCitas, cita, setCita }) => {
     const SintomasHandler = (e) =>{
         setSintomas(e.target.value);
     }
-    const guardarCita = (error) =>{
+    const guardarCita = () =>{
+        /*
+        let camposCompletos = cita.nombre && cita.dueno && cita.fecha && cita.hora && cita.sintomas;
 
-        const existeCita = listadoCitas.find(c => c.fecha === cita.fecha && c.hora === cita.hora);
-        const todosCamposLlenos = cita.nombre && cita.dueno && cita.fecha && cita.hora && cita.sintomas;
-
-        if (!todosCamposLlenos) {
+        if (!camposCompletos) {
             alert('Complete todos los campos!');
-        } else if (existeCita) {
-            alert('Ya tiene una cita fijada para esa hora!');
-        } else {
+        } else {*/
         const cita = {
             nombre: nombre,
             dueno: dueno,
@@ -43,7 +40,7 @@ const Formulario = ({ setCita, listadoCitas, cita, setCita }) => {
             sintomas: sintomas
         };
         setCita(cita);
-    }
+   /* }*/
     }
 
     const reset = () =>{
@@ -52,23 +49,23 @@ const Formulario = ({ setCita, listadoCitas, cita, setCita }) => {
         setFecha(() => "");
         setHora(() => "");
         setSintomas(() => "");
-    }
+        }
 
     return (
         <>
             <h2>Crear mi cita</h2>
             <div className="centrado">
                 <label>Nombre Mascota</label><br/>
-                <input type="text" name="mascota" className="u-full-width mb-3" placeholder="Nombre mascota" onChange={NombreHandler} value={nombre} /><br/>
+                <input id="nombre" type="text" name="mascota" className="u-full-width mb-3" placeholder="Nombre mascota" onChange={NombreHandler} value={nombre} /><br/>
                 <label>Nombre Dueño</label><br/>
-                <input type="text" name="propietario" className="u-full-width mb-3" placeholder="Nombre del dueño" onChange={DuenoHandler} value={dueno} /><br/>
+                <input id="dueno" type="text" name="propietario" className="u-full-width mb-3" placeholder="Nombre del dueño" onChange={DuenoHandler} value={dueno} /><br/>
                 <label>Fecha</label><br/>
-                <input type="date" name="fecha" className="u-full-width mb-3" onChange={FechaHandler} value={fecha}></input><br/>
+                <input id="fecha" type="date" name="fecha" className="u-full-width mb-3" onChange={FechaHandler} value={fecha}></input><br/>
                 <label>hora</label><br/>
-                <input type="time" name="hora" className="u-full-width mb-3" onChange={HoraHandler} value={hora} /><br/>
+                <input id="hora" type="time" name="hora" className="u-full-width mb-3" onChange={HoraHandler} value={hora} /><br/>
                 <label>Sintomas</label><br/>
-                <textarea name="sintomas" className="u-full-width mb-3" onChange={SintomasHandler} value={sintomas}/> <br/>
-                <button className="buttonForm" id="btn-sbmt" onClick={()=>{guardarCita(); reset()}}>Enviar</button>
+                <textarea id="sintomas" name="sintomas" className="u-full-width mb-3" onChange={SintomasHandler} value={sintomas}/> <br/>
+                <button className="buttonForm" id="btn-sbmt" onClick={() => {guardarCita(); reset()}}>Enviar</button>
             </div>
         </>
     );
