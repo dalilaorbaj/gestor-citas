@@ -31,7 +31,7 @@ const App = () => {
       </div>         
       <div className="garden">
                <div className="primera">
-                  <Formulario setCita={setCita}/>
+                  <Formulario setCita={setCita} listadoCitas={listadoCitas} cita={cita}/>
                </div>
                <div className="segunda">
                   {/* <h2>Administra tus citas</h2> */}

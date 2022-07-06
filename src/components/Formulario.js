@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 
-const Formulario = ({ setCita }) => {
+const Formulario = ({ setCita, listadoCitas, cita, setCita }) => {
     const [nombre, setNombre] = useState('');
     const [dueno, setDueno] = useState('');
     const [fecha, setFecha] = useState('');
@@ -26,6 +26,15 @@ const Formulario = ({ setCita }) => {
         setSintomas(e.target.value);
     }
     const guardarCita = (error) =>{
+
+        const existeCita = listadoCitas.find(c => c.fecha === cita.fecha && c.hora === cita.hora);
+        const todosCamposLlenos = cita.nombre && cita.dueno && cita.fecha && cita.hora && cita.sintomas;
+
+        if (!todosCamposLlenos) {
+            alert('Complete todos los campos!');
+        } else if (existeCita) {
+            alert('Ya tiene una cita fijada para esa hora!');
+        } else {
         const cita = {
             nombre: nombre,
             dueno: dueno,
@@ -34,6 +43,7 @@ const Formulario = ({ setCita }) => {
             sintomas: sintomas
         };
         setCita(cita);
+    }
     }
 
     const reset = () =>{
